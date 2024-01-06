@@ -26,6 +26,6 @@ fn main() -> Result<()> {
     let lines = BufReader::new(file).lines();
     let lines = lines.map(|line| line.unwrap()).collect::<Vec<String>>();
     let writer = BufWriter::new(stdout());
-    grrs::find_matches(writer, lines, &args.pattern)?;
+    grrs::core::find_matches(writer, lines, &args.pattern)?;
     Ok(())
 }
