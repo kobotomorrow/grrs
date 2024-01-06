@@ -22,7 +22,7 @@ fn main() -> Result<()> {
     // }
 
     // ファイルの内容を行ごとにメモリに展開する
-    let file = fs::File::open(&args.path).with_context(|| format!("could not readfile `{}`", args.path.display()))?;
+    let file = fs::File::open(&args.path).with_context(|| format!("could not read file `{}`", args.path.display()))?;
     let lines = BufReader::new(file).lines();
     let lines = lines.map(|line| line.unwrap()).collect::<Vec<String>>();
     let writer = BufWriter::new(stdout());
